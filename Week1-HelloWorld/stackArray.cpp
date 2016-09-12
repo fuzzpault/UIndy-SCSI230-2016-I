@@ -1,3 +1,7 @@
+/* Name: Paul Talaga
+   Date: 9/9/16
+   Desc: How big is the heap and stack?
+*/
 #include <iostream>
 
 using namespace std;
