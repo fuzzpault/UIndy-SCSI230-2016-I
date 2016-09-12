@@ -17,13 +17,11 @@ using namespace std;
 
 int main(){
   unsigned aint = 1;  // This is x10
-  unsigned bint = 1;  // This is x10
-  
   float a = 0.1;
-  float b = 0.1;
+
   for(int i = 0; i < 10000; i++){
-	a += b;
-	aint += bint;
+	a += 0.1;
+	aint += 1; // x10
 	cout << "float: "  << setw(10) << a;
 	cout << " int: " << setw(10) << (float)aint/10;
 	cout << " diff: " << fabs(a - (float)aint/10);
