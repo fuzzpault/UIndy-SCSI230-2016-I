@@ -48,6 +48,9 @@ int main(){
   
   float f = -2.0;
   printBits(f);
+
+  float i = 3.25;
+  printBits(i);
   
   double d = 0.5;
   printBits(d);
