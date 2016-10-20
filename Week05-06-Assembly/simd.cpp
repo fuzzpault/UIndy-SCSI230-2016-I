@@ -1,7 +1,13 @@
 /*
-
-
+  Name: Paul Talaga
+  Date: Oct 5, 2016
   See: https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html
+  
+  Description: This is a demonstration of the UADD8 ARM instruction.
+  When run, it will add two arrays as fast as possible using the UADD8 command, plus
+  a standard for loop.  To verify correctness, both results are checked against each other.
+  
+  Clock times are taken for both and printed to the screen.
  */
 
 #include <iostream>
@@ -15,7 +21,8 @@ union pack_t{
   char p[4];
 };
 
-
+// Adds the arrays a and b together element by element into c
+// The length is a global constant.
 void addSIMD(char* a, char* b, char* c){
   // Assume LENGTH is divisible by 4
   for(unsigned i = 0; i < LENGTH; i = i + 4){
@@ -31,6 +38,7 @@ void addSIMD(char* a, char* b, char* c){
   }
 }
 
+// A slower method of filling registers which still uses UADD8
 void addSIMD2(char* a, char* b, char* c){
   // Assume LENGTH is divisible by 4
   for(unsigned i = 0; i < LENGTH; i = i + 4){
@@ -81,7 +89,6 @@ int main(){
   clock_t stop_simd = clock();
   addNormal(a, b, d);
   clock_t stop_normal = clock();
-  //addNormal(a, b, c);
 
   cout << "SIMD: " << stop_simd - start_simd << "  normal: " << stop_normal - stop_simd << endl;
   
