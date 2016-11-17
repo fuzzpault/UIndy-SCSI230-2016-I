@@ -5,6 +5,9 @@
 
 using namespace std;
 
+// Function to ping a host and return true if it is alive, false
+// if not.  This is restricted to the 192.168.0.X subnet.
+// Timeout is set to 2 seconds.
 bool ping(int end){
   FILE* in;
   char buff[512];
@@ -30,6 +33,8 @@ bool ping(int end){
 }
 
 int main(){
+
+  // Make this go faster!
   for(int i = 1; i < 20; i++){
     cout << "192.168.0." << i ;
     if(ping(i)){
@@ -37,7 +42,6 @@ int main(){
     }
     cout << endl;
   }
-  //cout << ping(10) << endl;
   
   return 0;
 }
